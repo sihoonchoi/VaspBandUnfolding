@@ -10,7 +10,7 @@ class ewaldsum(object):
     Ewald summation.
     '''
 
-    def __init__(self, atoms, Z: dict={},
+    def __init__(self, atoms, Z, #Z: dict={},
             eta: float=None,
             Rcut: float=4.0,
             Gcut: float=4.0):
@@ -28,11 +28,12 @@ class ewaldsum(object):
         self._scapos = self._atoms.get_scaled_positions()
 
         elements = np.unique(self._atoms.get_chemical_symbols())
-        for elem in elements:
-            if elem not in Z:
-                raise ValueError(f'Charge for {elem} missing!')
+        # for elem in elements:
+        #     if elem not in Z:
+        #         raise ValueError(f'Charge for {elem} missing!')
 
-        self._ZZ = np.array([Z[x] for x in self._atoms.get_chemical_symbols()])
+        # self._ZZ = np.array([Z[x] for x in self._atoms.get_chemical_symbols()])
+        self._ZZ = Z
         # z_i * z_j
         self._Zij = np.prod(
             np.meshgrid(self._ZZ, self._ZZ, indexing='ij'),
