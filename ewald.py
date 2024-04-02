@@ -17,9 +17,9 @@ class ewaldsum(object):
         '''
         '''
 
-        assert Z, "'Z' can not be empty!\n\
-                It is a dictionary containing charges for each element,\
-                e.g. {'Na':1.0, 'Cl':-1.0}."
+        # assert Z, "'Z' can not be empty!\n\
+        #         It is a dictionary containing charges for each element,\
+        #         e.g. {'Na':1.0, 'Cl':-1.0}."
 
         # the poscar storing the atoms information
         self._atoms  = atoms
